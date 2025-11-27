@@ -5,52 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover" />
 <title>Para mi princesita</title>
 <style>
-  :root{
-    --bg:#fff5f5;
-    --env-deep:#d62828;    
-    --env-light:#ff6b6b;   
-    --paper:#ffffff;
-    --text:#8b1a1a;
-    --accent:#b81414;
-    --duration-open:1.3s;
-  }
+:root{
+  --bg:#fff5f5;
+  --env-deep:#d62828;    
+  --env-light:#ff6b6b;   
+  --paper:#ffffff;
+  --text:#8b1a1a;
+  --accent:#b81414;
+  --duration-open:1.3s;
+}
 
-  html,body{height:100%; margin:0; background:var(--bg); font-family: Inter, Roboto, Arial, sans-serif; -webkit-font-smoothing:antialiased;}
-  .stage{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; box-sizing:border-box; position:relative; overflow:hidden;}
-  .bokeh {position:absolute; inset:0; z-index:0; background:
-      radial-gradient(circle at 10% 20%, rgba(255,200,200,0.18) 0 6%, transparent 15%),
-      radial-gradient(circle at 80% 30%, rgba(255,230,230,0.14) 0 6%, transparent 18%),
-      radial-gradient(circle at 50% 80%, rgba(255,210,220,0.12) 0 8%, transparent 20%),
-      linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,245,245,0.9));
-    filter: blur(10px) saturate(1.05);
-    pointer-events:none;
-  }
+html,body{height:100%; margin:0; background:var(--bg); font-family: Inter, Roboto, Arial, sans-serif; -webkit-font-smoothing:antialiased;}
+.stage{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; box-sizing:border-box; position:relative; overflow:hidden;}
+.bokeh {position:absolute; inset:0; z-index:0; background:
+  radial-gradient(circle at 10% 20%, rgba(255,200,200,0.18) 0 6%, transparent 15%),
+  radial-gradient(circle at 80% 30%, rgba(255,230,230,0.14) 0 6%, transparent 18%),
+  radial-gradient(circle at 50% 80%, rgba(255,210,220,0.12) 0 8%, transparent 20%),
+  linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,245,245,0.9));
+  filter: blur(10px) saturate(1.05);
+  pointer-events:none;
+}
 
-  .card-wrap{width:92%; max-width:380px; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; flex-direction:column;}
+.card-wrap{width:92%; max-width:380px; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; flex-direction:column;}
 
-  .envelope-container{width:100%; max-width:380px; position:relative; perspective:900px; cursor:pointer; -webkit-tap-highlight-color: transparent;}
-  .envelope{width:100%; padding-top:68%; position:relative; transform-style:preserve-3d; transform-origin: top center; transition: transform var(--duration-open) cubic-bezier(.2,.9,.25,1);}
-  .top-flap{position:absolute; inset:0; background:var(--env-deep); clip-path: polygon(0 0, 100% 0, 50% 56%); transform-origin: top center; z-index:6; box-shadow: 0 8px 20px rgba(0,0,0,0.18) inset; transition: transform var(--duration-open) cubic-bezier(.2,.9,.25,1);}
-  .back{position:absolute; inset:0; background: linear-gradient(180deg, var(--env-light) 0%, var(--env-deep) 100%); clip-path: polygon(0 0,100% 0,100% 56%,50% 100%,0 56%); z-index:1; box-shadow: 0 12px 30px rgba(0,0,0,0.18);}
-  .side-left, .side-right{position:absolute; bottom:0; width:50%; height:48%; z-index:3; transition: transform var(--duration-open) cubic-bezier(.2,.9,.25,1);}
-  .side-left{left:0; background: linear-gradient(135deg, rgba(255,140,140,0.12), rgba(255,170,170,0.08)); clip-path: polygon(0 0,100% 0,25% 100%,0 100%);}
-  .side-right{right:0; background: linear-gradient(45deg, rgba(255,140,140,0.12), rgba(255,170,170,0.08)); clip-path: polygon(0 0,100% 0,100% 100%,75% 100%);}
+.envelope-container{width:100%; max-width:380px; position:relative; perspective:900px; cursor:pointer; -webkit-tap-highlight-color: transparent;}
+.envelope{width:100%; padding-top:68%; position:relative; transform-style:preserve-3d; transform-origin: top center; transition: transform var(--duration-open) cubic-bezier(.2,.9,.25,1);}
+.top-flap{position:absolute; inset:0; background:var(--env-deep); clip-path: polygon(0 0, 100% 0, 50% 56%); transform-origin: top center; z-index:6; box-shadow: 0 8px 20px rgba(0,0,0,0.18) inset; transition: transform var(--duration-open) cubic-bezier(.2,.9,.25,1);}
+.back{position:absolute; inset:0; background: linear-gradient(180deg, var(--env-light) 0%, var(--env-deep) 100%); clip-path: polygon(0 0,100% 0,100% 56%,50% 100%,0 56%); z-index:1; box-shadow: 0 12px 30px rgba(0,0,0,0.18);}
+.side-left, .side-right{position:absolute; bottom:0; width:50%; height:48%; z-index:3; transition: transform var(--duration-open) cubic-bezier(.2,.9,.25,1);}
+.side-left{left:0; background: linear-gradient(135deg, rgba(255,140,140,0.12), rgba(255,170,170,0.08)); clip-path: polygon(0 0,100% 0,25% 100%,0 100%);}
+.side-right{right:0; background: linear-gradient(45deg, rgba(255,140,140,0.12), rgba(255,170,170,0.08)); clip-path: polygon(0 0,100% 0,100% 100%,75% 100%);}
 
-  .letter {position:absolute; left:50%; top:34%; width:88%; transform:translate(-50%,0); background:var(--paper); border-radius:10px; padding:16px 14px; box-shadow: 0 12px 30px rgba(0,0,0,0.16); z-index:5; opacity:0; transition: opacity 0.9s ease-in-out 0.45s, transform 0.9s ease-in-out 0.45s; will-change: opacity, transform; pointer-events:none;}
+.letter {position:absolute; left:50%; top:34%; width:88%; transform:translate(-50%,0); background:var(--paper); border-radius:10px; padding:16px 14px; box-shadow: 0 12px 30px rgba(0,0,0,0.16); z-index:5; opacity:0; transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out; will-change: opacity, transform; pointer-events:none;}
+.letter.visible {opacity:1; transform:translate(-50%,-20px);}
 
-  .envelope.open .top-flap{transform: rotateX(-180deg);}
-  .envelope.open ~ .letter{opacity:1; transform:translate(-50%,-20px);}
-  .envelope.open .side-left { transform: translateX(-6%) rotate(-6deg); }
-  .envelope.open .side-right { transform: translateX(6%) rotate(6deg); }
+.envelope.open .top-flap{transform: rotateX(-180deg);}
+.envelope.open .side-left { transform: translateX(-6%) rotate(-6deg); }
+.envelope.open .side-right { transform: translateX(6%) rotate(6deg); }
 
-  .title {text-align:center; font-weight:700; color:var(--accent); margin-bottom:8px; font-size:15px;}
-  .message {color:var(--text); font-size:14px; line-height:1.5; white-space:pre-wrap;}
-  .signature {display:block; margin-top:12px; text-align:right; font-weight:700; color:var(--accent);}
-  .heart-svg { display:block; width:70px; margin:6px auto 10px; }
-  .floating {position:fixed; bottom:18%; font-size:20px; pointer-events:none; z-index:9; will-change: transform, opacity; animation: floatUp 3.6s linear forwards; text-shadow: 0 2px 6px rgba(0,0,0,0.08);}
-  @keyframes floatUp {0% { transform: translateY(0) scale(0.9); opacity:1; } 25% { transform: translateY(-30px) scale(1.05); } 50% { transform: translateY(-70px) scale(1.2); opacity:0.95; } 75% { transform: translateY(-120px) scale(1.45); opacity:0.6; } 100% { transform: translateY(-170px) scale(1.7); opacity:0; }}
-  .hint { margin-top:12px; color:var(--accent); font-weight:700; font-size:13px; }
-  @media (max-width:360px){ .heart-svg { width:60px; } .message { font-size:13px; } }
+.title {text-align:center; font-weight:700; color:var(--accent); margin-bottom:8px; font-size:15px;}
+.message {color:var(--text); font-size:14px; line-height:1.5; white-space:pre-wrap;}
+.signature {display:block; margin-top:12px; text-align:right; font-weight:700; color:var(--accent);}
+.heart-svg { display:block; width:70px; margin:6px auto 10px; }
+.floating {position:fixed; bottom:18%; font-size:20px; pointer-events:none; z-index:9; will-change: transform, opacity; animation: floatUp 3.6s linear forwards; text-shadow: 0 2px 6px rgba(0,0,0,0.08);}
+@keyframes floatUp {0% { transform: translateY(0) scale(0.9); opacity:1; } 25% { transform: translateY(-30px) scale(1.05); } 50% { transform: translateY(-70px) scale(1.2); opacity:0.95; } 75% { transform: translateY(-120px) scale(1.45); opacity:0.6; } 100% { transform: translateY(-170px) scale(1.7); opacity:0; }}
+.hint { margin-top:12px; color:var(--accent); font-weight:700; font-size:13px; }
+@media (max-width:360px){ .heart-svg { width:60px; } .message { font-size:13px; } }
 </style>
 </head>
 <body>
@@ -71,7 +71,6 @@
           <path fill="#ff0033" d="M23.6,0c-2.9,0-5.4,1.3-7.6,3.9C13.8,1.3,11.3,0,8.4,0C3.5,0,0,3.7,0,8.7
           c0,4.6,3.4,8.3,6.6,11.2c3.3,3,5.4,4.8,9.4,9.7c4-4.9,6.1-6.8,9.4-9.7c3.2-2.9,6.6-6.6,6.6-11.2C32,3.7,28.5,0,23.6,0z"/>
         </svg>
-
         <div class="title">De tu hombre para mi princesita 💖</div>
         <div class="message" id="messageText">
 Feliz año amorcitoo, gracias por este año lleno de felicidad a tu lado bonita, te amo millones y espero te guste la sorpresa que te tengo hoy no te lo pude dar pero en cuanto te vea te lo daré. Por el momento espero me aceptes esta carta como una pequeña parte del regalo, discúlpame por no dártelo hoy. Te amo amor, mil gracias por tanto.
@@ -91,6 +90,7 @@ Feliz año amorcitoo, gracias por este año lleno de felicidad a tu lado bonita,
 <script>
 const envelope = document.getElementById('envelope');
 const wrapper = document.getElementById('envelopeWrapper');
+const letter = document.getElementById('letter');
 const audio = document.getElementById('audio');
 let opened = false;
 
@@ -115,6 +115,7 @@ wrapper.addEventListener('click', (e) => {
   opened = !opened;
   if(opened){
     envelope.classList.add('open');
+    letter.classList.add('visible');
     audio.currentTime = 0;
     audio.volume = 0.95;
     audio.play().catch(()=>{});
@@ -123,6 +124,7 @@ wrapper.addEventListener('click', (e) => {
     }
   } else {
     envelope.classList.remove('open');
+    letter.classList.remove('visible');
     audio.pause();
   }
 });
