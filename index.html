@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -58,7 +59,7 @@ html,body{height:100%; margin:0; background:var(--bg); font-family: Inter, Robot
   <div class="bokeh" aria-hidden="true"></div>
 
   <div class="card-wrap">
-    <div class="envelope-container" id="envelopeWrapper" aria-label="Sobre - toca para abrir">
+    <div class="envelope-container" id="envelopeWrapper" aria-label="Sobre">
       <div class="envelope" id="envelope">
         <div class="top-flap" aria-hidden="true"></div>
         <div class="back" aria-hidden="true"></div>
@@ -78,8 +79,6 @@ Feliz año amorcitoo, gracias por este año lleno de felicidad a tu lado bonita,
         <span class="signature">-- Con todo mi cariño</span>
       </div>
     </div>
-
-    <div class="hint"> Toca el sobre para abrir</div>
   </div>
 
   <audio id="audio" preload="auto">
@@ -89,10 +88,9 @@ Feliz año amorcitoo, gracias por este año lleno de felicidad a tu lado bonita,
 
 <script>
 const envelope = document.getElementById('envelope');
-const wrapper = document.getElementById('envelopeWrapper');
 const letter = document.getElementById('letter');
+const wrapper = document.getElementById('envelopeWrapper');
 const audio = document.getElementById('audio');
-let opened = false;
 
 function spawnHeart() {
   const heart = document.createElement('div');
@@ -111,30 +109,17 @@ function spawnHeart() {
   setTimeout(()=> { heart.remove(); }, 4200);
 }
 
-wrapper.addEventListener('click', (e) => {
-  opened = !opened;
-  if(opened){
-    envelope.classList.add('open');
-    letter.classList.add('visible');
-    audio.currentTime = 0;
-    audio.volume = 0.95;
-    audio.play().catch(()=>{});
-    for(let i=0;i<12;i++){
-      setTimeout(spawnHeart, 120 * i + (Math.random()*200));
-    }
-  } else {
-    envelope.classList.remove('open');
-    letter.classList.remove('visible');
-    audio.pause();
+// abrir automáticamente al cargar
+window.addEventListener('load', () => {
+  envelope.classList.add('open');
+  letter.classList.add('visible');
+  for(let i=0;i<12;i++){
+    setTimeout(spawnHeart, 120 * i + (Math.random()*200));
   }
-});
-
-wrapper.setAttribute('tabindex','0');
-wrapper.addEventListener('keydown', (e) => {
-  if(e.key === 'Enter' || e.key === ' '){
-    e.preventDefault();
-    wrapper.click();
-  }
+  // intentar reproducir audio si el navegador permite
+  audio.currentTime = 0;
+  audio.volume = 0.95;
+  audio.play().catch(()=>{});
 });
 </script>
 </body>
